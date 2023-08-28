@@ -1,21 +1,27 @@
 {% extends "htmx_tut/base.html" %}
 {% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}HTMX Tasks{% endblock %}
 
 {% block body %}
 <div class="container-fluid mb-1 jumbotron">
   <div class="row">
     <div class="col-sm-10 offset-sm-1">
-      <h1 class="mb-3">Django HTMX Tutorial</h1>
+      <h1 class="mb-3">HTMX Tasks</h1>
     </div>
   </div>
 </div>
 <div class="container">
-  <div class="row pt-5 pb-4 text-center">
-    <p>Welcome to your app!</p>
-    <a href="{% url 'tasks' %}" class="btn btn-primary">View Tasks</a>
-  </div>
+    {% include "htmx_tut/task_list.html" %}
+    <div class="row">
+        <form hx-post="{% url 'create_task' %}"
+            hx-target="#tasks"
+            hx-swap="outerHTML">
+            <label for="description">Enter a new task:</label>
+            <input type="text" id="description" name="description">
+            <input type="submit" value="Add" class="btn btn-success">
+        </form>
+    </div>
 </div>
 {% endblock %}
 

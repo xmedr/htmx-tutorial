@@ -1,4 +1,5 @@
-# Django HTMX Tutorial
+# Django HTMX Tutorial Practice
+Based off [this tutorial](https://www.mattlayman.com/blog/2021/how-to-htmx-django/)
 
 ## Set-up pre-commit
 

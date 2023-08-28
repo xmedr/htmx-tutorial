@@ -1,0 +1,23 @@
+<div id="tasks" class="row pt-5 pb-4"
+    hx-confirm="Are you sure want to delete this task?"
+    hx-target="#tasks"
+    hx-swap="outerHTML">
+    <table class="table col-8">
+        <thead>
+            <th>Description</th>
+            <th></th>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>
+                    {{forloop.counter}}) {{task.description}}
+                </td>
+                <td>
+                    <a hx-post="{% url 'delete_task' task.pk %}" class="btn btn-danger text-white">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+  </div>

@@ -20,6 +20,9 @@ from htmx_tut import views
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
+    path('tasks/', views.TaskListView.as_view(), name='tasks'),
+    path('tasks/create/', views.TaskCreateView.as_view(), name='create_task'),
+    path('tasks/<int:pk>/delete/', views.TaskDeleteView.as_view(), name='delete_task'),
     path('admin/', admin.site.urls),
 ]
 
